@@ -1,0 +1,30 @@
+{% extends "EniamsMediaBundle::layout.html.twig" %}
+{% block media_body %}
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1 class="text-center">Media</h1>
+            </div>
+
+            <div class="row">
+
+                    <h3 class="text-center">API JSON</h3>
+
+                <div class="col-md-8">
+                    {#
+                    {% for article in listArticle %}
+                        <div class="well">
+                            <a href=""><h5>{{ article.title }} </h5></a>
+
+                            <h5>{{ article.content }}</h5>
+
+                        </div>
+
+                    {% endfor %}
+#}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

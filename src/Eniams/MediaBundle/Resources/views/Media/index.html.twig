@@ -8,32 +8,24 @@
 
 <div class="row">
 <div class="col-md-4">
-<h3 class="text-center"><a href=""> Login </a></h3>
-<h3 class="text-center"><a href=""> Add Article </a></h3>
+    <h3 class="text-center"><a href=""> Login </a></h3>
+    <h3 class="text-center"><a href=""> Add Article </a></h3>
+    <h3 class="text-center"><a href="{{ path('eniams_media_api') }}"> Api Json </a></h3>
 </div>
 <div class="col-md-8">
+	{% for article in listArticle %}
 	<div class="well">
-	<a href=""><h5>Article n°152 </h5>
-	<h5>Sujet : La finance</h5>
-	<h5>Posté le : 10 Octobre 2016</h5>
-	<h5>Contenu : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa recusandae mollitia fugit ducimus, ullam pariatur rem qui minima molestias inventore magni tempore voluptatibus saepe quasi sequi quo, et officiis veritatis.</h5></a>
-	</div>
-	<div class="well">
-	<a href=""><h5>Article n°152 </h5>
-	<h5>Sujet : La finance</h5>
-	<h5>Posté le : 10 Octobre 2016</h5>
-	<h5>Contenu : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa recusandae mollitia fugit ducimus, ullam pariatur rem qui minima molestias inventore magni tempore voluptatibus saepe quasi sequi quo, et officiis veritatis.</h5></a>
-	</div>
-	<div class="well">
-	<a href=""><h5>Article n°152 </h5>
-	<h5>Sujet : La finance</h5>
-	<h5>Posté le : 10 Octobre 2016</h5>
-	<h5>Contenu : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa recusandae mollitia fugit ducimus, ullam pariatur rem qui minima molestias inventore magni tempore voluptatibus saepe quasi sequi quo, et officiis veritatis.</h5></a>
-	</div>
-</div>
+	<a href=""><h5>{{ article.title }} </h5></a>
 
+	<h5>{{ article.content }}</h5>
 
+	</div>
+
+	{% endfor %}
 
 </div>
 </div>
+
+    </div>
+    </div>
 {% endblock %}

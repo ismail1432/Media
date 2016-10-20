@@ -1,3 +1,8 @@
 eniams_media_homepage:
     path:     /
     defaults: { _controller: EniamsMediaBundle:Media:index }
+
+eniams_media_api:
+    path:     /api
+    defaults: { _controller: EniamsMediaBundle:Media:monapi }
+
