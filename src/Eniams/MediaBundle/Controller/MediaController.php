@@ -3,6 +3,7 @@
 namespace Eniams\MediaBundle\Controller;
 
 use Eniams\MediaBundle\Entity\Article;
+use Eniams\MediaBundle\Form\ArticleType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,19 +12,31 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 
+
 class MediaController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         /** @var Article $listArticle */
         $listArticle = $em->getRepository('EniamsMediaBundle:Article')->findAll();
 
-        var_dump($listArticle);
+        $article = new Article();
+        $form = $this->createForm(ArticleType::class, $article);
+
+        $form->handleRequest($request);
+
+        if($request->isXmlHttpRequest())
+        {
+            $article = $form->getData();
+            $em->persist($article);
+            $em->flush();
+
+        }
 
         return $this->render('EniamsMediaBundle:Media:index.html.twig',
-            array('listArticle' => $listArticle));
-        die();
+                        array('form'=> $form->createView(), 'listArticle' => $listArticle));
+
     }
 
     public function monapiAction(){

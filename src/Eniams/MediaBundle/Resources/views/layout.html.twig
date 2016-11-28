@@ -7,7 +7,7 @@
     <title>{% block title %}Media{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
-  <script src="https://use.fontawesome.com/708d46d369.js"></script>
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <style type="text/css">
@@ -17,6 +17,21 @@
 
   	{% block media_body %}
     {% endblock %}
+
+
+  <script>
+
+    $("form").submit(function(e){
+
+      e.preventDefault();
+      var formSerialize = $(this).serialize();
+      $.post('http://localhost/smaine/perso/mediaSymfony/Symfony/web/app_dev.php',
+              formSerialize,'JSON');
+    });
+
+
+  </script>
+
   </body>
   </html>
 
